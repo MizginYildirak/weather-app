@@ -21,4 +21,4 @@ const App = () => {
   );
 };
 
-export defa
+export default App;

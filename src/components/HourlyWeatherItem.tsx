@@ -15,4 +15,4 @@ const HourlyWeatherItem = () => {
   );
 };
 
-export default HourlyWeather
+export default HourlyWeatherItem;
