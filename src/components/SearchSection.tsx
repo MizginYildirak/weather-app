@@ -22,7 +22,7 @@ const SearchSection: React.FC<SearchSectionProps> = ({ getWeatherDetails }) => {
   return (
     <div className="search-section">
       <form className="search-form" onSubmit={handleCitySearch}>
-        <span className="material-symbols-rounded">search</span>
+        <span className="material-symbols-rounded">search</span> 
         <input
           type="search"
           ref={inputRef}
@@ -30,7 +30,7 @@ const SearchSection: React.FC<SearchSectionProps> = ({ getWeatherDetails }) => {
           className="search-input"
           required
         />
-      </form>   
+      </form>
       <button type="button" onClick={handleCitySearch} className="location-button">
         <span className="material-symbols-rounded">ok</span>
       </button>
