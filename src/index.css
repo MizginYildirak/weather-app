@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
@@ -94,6 +94,7 @@ body {
   background: rgba(255, 255, 255, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 6px;
+  transition: 0.2s ease;
 }
 
 .search-section .location-button:hover {
@@ -132,7 +133,7 @@ body {
   margin: 5px 0 0 2px;
 }
 
-.current-weather .temperature {
+.current-weather .description {
   font-size: 1.25rem;
 }
 
