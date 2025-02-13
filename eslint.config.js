@@ -23,4 +23,7 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
-      "react/p
+      "react/prop-types": "off";
+    },
+  },
+)

@@ -15,9 +15,22 @@ const SearchSection: React.FC<SearchSectionProps> = ({ getWeatherDetails }) => {
     const inputValue = inputRef.current?.value || "";
     console.log("inputValue:", inputValue);
 
-    const API_URL = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${inputValue}`;
+    const API_URL = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${latitude}&${longitude}days=2`;
     getWeatherDetails(API_URL);
   };
+
+  const handleLocationSearch = () => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const {latitude, longitude } = position.coords
+        const API_URL = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${inputValue}&days=2`;
+        console.log(position)
+      },
+      () => {
+        alert("Location access denied. Please enable permissions to use this feature.")
+      }
+    )
+  }
 
   return (
     <div className="search-section">
@@ -31,7 +44,7 @@ const SearchSection: React.FC<SearchSectionProps> = ({ getWeatherDetails }) => {
           required
         />
       </form>
-      <button type="button" onClick={handleCitySearch} className="location-button">
+      <button type="button" onClick={handleCitySearch} className="location-button" onClick={handleLocationSearch}>
         <span className="material-symbols-rounded">ok</span>
       </button>
     </div>

@@ -20,7 +20,8 @@ body {
   overflow: hidden;
   margin: 0 auto;
   z-index: 1;
-  max-width: "50%";
+  width: 570px;
+
   border-radius: 10px;
   background: linear-gradient(#352163, #33143c);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1)
@@ -164,7 +165,6 @@ body {
   list-style: none;
   scrollbar-width: thin;
   padding-bottom: 16px;
-  margin-bottom: -16px;
   scrollbar-color: transparent transparent;
 }
 
