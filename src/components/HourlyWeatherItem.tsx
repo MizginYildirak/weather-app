@@ -19,4 +19,9 @@ const HourlyWeatherItem = ({hourlyWeather}) => {
         alt="clouds"
         className="weather-icon"
       />
-      <p className="temperature">{temperatur
+      <p className="temperature">{temperature}</p>
+    </li>
+  );
+};
+
+export default HourlyWeatherItem;
