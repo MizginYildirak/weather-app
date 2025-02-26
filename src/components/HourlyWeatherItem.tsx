@@ -1,12 +1,12 @@
 import React from "react";
 import "../index.css";
-import {weatherCodes} from "../constants.js"
+import { weatherCodes } from "../constants";
 
-const HourlyWeatherItem = ({hourlyWeather}) => {
-  const temperature = Math.floor(hourlyWeather.temp_c)
-  const time = hourlyWeather.time.split(" ")[1].substring(0, 5)
+const HourlyWeatherItem = ({ hourlyWeather }) => {
+  const temperature = Math.floor(hourlyWeather.temp_c);
+  const time = hourlyWeather.time.split(" ")[1].substring(0, 5);
 
-  console.log("time:", time)
+  console.log("time:", time);
   const weatherIcon = Object.keys(weatherCodes).find((icon) =>
     weatherCodes[icon].includes(hourlyWeather.condition.code)
   );

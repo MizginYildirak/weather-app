@@ -12,7 +12,10 @@ const SearchSection: React.FC<SearchSectionProps> = ({
 }) => {
   const API_KEY = import.meta.env.VITE_API_KEY;
 
-  const [currentLocation, setCurrentLocation] = useState<{ latitude: number | null, longitude: number | null }>({
+  const [currentLocation, setCurrentLocation] = useState<{
+    latitude: number | null;
+    longitude: number | null;
+  }>({
     latitude: null,
     longitude: null,
   });
@@ -29,8 +32,7 @@ const SearchSection: React.FC<SearchSectionProps> = ({
   };
 
   useEffect(() => {
-    // Sayfa ilk açıldığında Paris'in koordinatlarını kullan
-    const parisCoordinates = { latitude: 48.8566, longitude: 2.3522 }; // Paris'in koordinatları
+    const parisCoordinates = { latitude: 48.8566, longitude: 2.3522 };
     setCurrentLocation(parisCoordinates);
   }, []);
 
@@ -38,6 +40,7 @@ const SearchSection: React.FC<SearchSectionProps> = ({
     if (currentLocation.latitude && currentLocation.longitude) {
       const API_URL = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${currentLocation.latitude},${currentLocation.longitude}&days=2`;
       getWeatherDetails(API_URL);
+      window.innerWidth >= 768 && searchInputRef.current.focus();
     }
   }, [currentLocation]);
 

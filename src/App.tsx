@@ -2,9 +2,9 @@ import { useState, useRef } from "react";
 import SearchSection from "./components/SearchSection";
 import CurrentWeather from "./components/CurrentWeather";
 import HourlyWeatherItem from "./components/HourlyWeatherItem";
-import "./index.css";
 import { weatherCodes } from "./constants";
-import {NoResultsDiv} from "./components/NoResultsDiv"
+import NoResultsDiv from "./components/NoResultsDiv";
+import "./index.css";
 
 const App = () => {
   const [currentWeather, setCurrentWeather] = useState<{
@@ -40,6 +40,7 @@ const App = () => {
 
   const getWeatherDetails = async (API_URL: string) => {
     setHasNoResults(false);
+    window.innerWidth <= 768 && searchInputRef.current.focus();
     try {
       const response = await fetch(API_URL);
       if (!response.ok) throw new Error();
@@ -47,7 +48,7 @@ const App = () => {
       console.log("API Verisi:", data);
 
       const weatherIcon = Object.keys(weatherCodes).find((icon) =>
-        weatherCodes[icon].includes(data.current.condition.code)
+        weatherCodes[icon]?.includes(data.current.condition.code)
       );
 
       const temperature = Math.floor(data.current.temp_c);
